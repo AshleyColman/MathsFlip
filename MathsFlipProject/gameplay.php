@@ -119,8 +119,10 @@ $card_id = htmlspecialchars($_GET["card_id"]);
     
     <!-- Buttons -->
     <div class="card-button-container">
-        <a href="gameplay.php?category=number&card_id=<?php echo $card_id ?>"><button class="card-button" id="card-button-correct">Correct</button></a> <!-- Correct button, links user to next card page with card_id incremented -->
-        <a href="gameplay.php?category=number&card_id=<?php echo $card_id ?>"><button class="card-button" id="card-button-wrong">Wrong</button></a> <!-- Wrong button, links user to next card with card_id incremented -->
+        <form action="includes/score.inc.php" method="POST"> <!-- When the user presses a button call score.inc.php -->
+        <a href="gameplay.php?category=number&card_id=<?php echo $card_id ?>"><button class="card-button" id="card-button-correct" type="submit" name="correct">Correct</button></a> <!-- Correct button, links user to next card page with card_id incremented -->
+        <a href="gameplay.php?category=number&card_id=<?php echo $card_id ?>"><button class="card-button" id="card-button-wrong" type="submit" name="wrong">Wrong</button></a> <!-- Wrong button, links user to next card with card_id incremented -->
+        </form>
         <button class="card-button" id="card-button-tip">Tip</button> <!-- Tip button -->
     </div>
     <footer>University Centre Weston</footer>
