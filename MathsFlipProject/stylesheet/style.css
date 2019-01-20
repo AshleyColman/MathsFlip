@@ -1,0 +1,385 @@
+*
+{
+    margin:0;
+    padding:0;
+    font-family:"Arial";
+}
+
+body
+{
+    background-color:#e6e6e6;
+}
+
+header
+{
+    background-color:#009F9A;
+    width:100%;
+    height:720px;
+}
+
+/* Gameplay page header */
+#gameplay-header
+{
+    background-color:#009F9A;
+    width:100%;
+    height:120px;
+    font-size:3em;
+    text-align:center;
+    line-height:2.4; /* Position in middle */
+    color:white;
+}
+
+#logo-container
+{
+    width:50%;
+    margin:auto;
+    height:450px;
+    color:white;
+}
+
+#img-card
+{
+    width:500px;
+}
+
+#index-heading
+{
+    color:white;
+    text-align:center;
+    font-size:7em;
+}
+
+#index-subheading
+{
+    color:white;
+    text-align:center;
+    font-size:4em;
+    margin-top:10px;
+}
+
+#content
+{
+    width:100%;
+    height:902px;
+}
+
+#menu-container
+{
+    width:65%;
+    height:902px;
+    margin:auto;
+    color:white;
+    font-size:3em;
+    text-align:center;
+    line-height:3;
+}
+
+#category-menu-container
+{
+    width:95%;
+    height:2150px;
+    margin:auto;
+    color:white;
+    font-size:3em;
+    text-align:center;
+    line-height:3;
+}
+
+.button
+{
+    background-color:#009F9A;
+    width:100%;
+    height:150px;
+    font-size:1em;
+    color:white;
+}
+
+.button:hover
+{
+    background-color:#0E86A9;
+}
+
+/* Category page buttons */
+.category-button
+{
+    background-color:#009F9A;
+    width:100%;
+    height:250px;
+    font-size:1em;
+    color:white;
+    line-height:5;
+}
+
+.category-button:hover
+{
+    background-color:#0E86A9;
+}
+
+.menu-button
+{
+    margin-top:110px;
+}
+
+.category-menu-button
+{
+    margin-top:110px;
+}
+
+.category-icon
+{
+    float:left;
+    width:33.3%;
+    height:100%;
+}
+
+/* Category images */
+.category-icon img
+{
+    width:150px;
+    vertical-align: middle;
+}
+
+.category-name
+{
+    display:inline-block;
+    width:33.3%;
+    height:100%;
+}
+
+.category-percentage
+{
+    float:right;
+    width:33.3%;
+    height:100%;
+}
+
+.category-scorebar
+{
+    width:100%;
+    height:25px;
+    background-color:#2861AB;
+}
+
+#overall-scorebar
+{
+    width:100%;
+    height:100px;
+    background-color:#2861AB;
+}
+
+#overall-scorebar p
+{
+    color:white;
+    font-size:3em;
+    line-height:2;
+    text-align: center;
+}
+
+
+form
+{
+    color:black;
+    margin-top:40px;
+    color:#009F9A;
+}
+
+input
+{
+    width:100%;
+    box-sizing:border-box;
+    padding:40px 20px;
+    border: 2px solid #009F9A;
+    border-radius: 4px;
+    background-color:white;
+    color:#009F9A;
+    font-size:1em;
+    text-align: center;
+}
+
+input:focus
+{
+    background-color:#009F9A;
+    color:white;
+}
+
+#log-form-button
+{
+    margin-top:60px;
+}
+
+/* The card container */
+.card-container
+{
+    perspective:700;
+    width:80%;
+    height:1000px;
+    margin:auto;
+    margin-top:100px;
+}
+
+/* The card */
+.card
+{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition: all 1s ease;
+    transform-style:preserve-3d;
+    border:5px solid black;
+}
+
+/* When hovering over the card */
+.card:hover
+{
+    transform:rotateY(180deg);
+}
+
+
+/* The front and back of the card */
+.card-front, .card-back
+{
+    background-color:white;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    text-align:center;
+    backface-visibility: hidden; /* Prevents reversed words when flipped */
+}
+
+/* The back of the card */
+.card-back
+{
+    transform:rotateY(180deg);
+}
+
+/* The card text questions */
+.card-text
+{
+    width:100%;
+    height:45%;
+    line-height:10;
+    color:black;
+    font-size:3em;
+}
+
+/* The card header */
+.card-header
+{
+    width:100%;
+    height:10%;
+    background-color:#2861AB;
+    line-height:1.8;
+    color:white;
+    font-size:3em;
+}
+
+/* The card image container */
+.card-image
+{
+    border:2px solid black;
+    width:100%;
+    height:45%;
+}
+
+/* The card image  */
+.card-image img
+{
+    /*
+    height:100%;
+    width:100%;
+    */
+    vertical-align:middle;
+}
+
+/* The container for the card buttons */
+.card-button-container
+{
+    margin:auto;
+    width:100%;
+    height:100px;
+    text-align:center; /* Position buttons in middle */
+    margin-top:60px;
+}
+
+/* Both card buttons */
+.card-button
+{
+    border: 5px solid black;
+    color:white;
+    font-size:3em;
+    width:45%;
+    height:120px;
+}
+
+/* The correct button for the card */
+#card-button-correct
+{
+    background-color:#129E00;
+}
+
+/* On hover for correct button */
+#card-button-correct:hover
+{
+    background-color:#0D7200;
+}
+
+/* The wrong button for the card */
+#card-button-wrong
+{
+    background-color:#D11400;
+}
+
+/* On hover for wrong button */
+#card-button-wrong:hover
+{
+    background-color:#B21100;
+}
+
+/* The tip button for the card */
+#card-button-tip
+{
+    margin-top:50px;
+    background-color:#2861AB;
+}
+
+/* On hover for tip button */
+#card-button-tip:hover
+{
+    background-color:#1F4C87;
+}
+
+footer
+{
+    background-color:#009F9A;
+    width:100%;
+    height:120px;
+    position:fixed; /* Position footer at bottom */
+    bottom:0; /* Position footer at bottom */
+    font-size:3em;
+    text-align:center;
+    line-height:2.4; /* Position in middle */
+    color:white;
+}
+
+/* On some pages the fixed footer covers elements, this is used to add some space to extend the page */
+#footerspace
+{
+    width:100%;
+    height:400px;
+}
+
+
+/* Normal link */
+a:link
+{
+    color:white;
+    text-decoration:none;
+}
+
+a:visited
+{
+    color:white;
+    text-decoration:none;
+}
