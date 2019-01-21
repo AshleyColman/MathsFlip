@@ -4,6 +4,7 @@
 session_start();
 // Connect to database
 include 'dbh.inc.php';
+
 // Get username from session variable
 $username = $_SESSION['username']; 
 
@@ -27,9 +28,6 @@ if ($resultCheck > 0)
         }
 }
 
-// Echo for testing
-//echo $_SESSION['user_id'];
-
 
 // UPDATE SCORE
 
@@ -37,44 +35,47 @@ if ($resultCheck > 0)
 if (isset($_POST['correct']))
 {
     // Assign answer to be correct
-    $answer = "correct"; 
-    
-    // echo $answer;
+    $answer = TRUE; 
 }
-else if (isset($_POST['wrong']))
+if (isset($_POST['wrong']))
 {
-    // If the answer is wrong
-    // Assign answer to be wrong
-    $answer = "wrong"; 
-    
-    // echo $answer;
+    // If the answer is wrong assign answer to be wrong
+    $answer = FALSE; 
 }
-
-
 
 
 // Check score table to see if user has already got existing score for the card id (check user_id against card_id for existing match)
 // If card score exists, update the record with new result
 // If card score does not exist, add the new record (user_id to card_id in score table)
 
-$sql = "SELECT * FROM score WHERE user_id_fk = $user_id"; 
+// Get the current card id
+$card_id = $_SESSION['card_id'];
+
+$sql = "SELECT * FROM score WHERE user_id_fk = $user_id AND card_id_fk = $card_id"; 
 
 // Send query and return results
 $result = mysqli_query($conn, $sql); 
 // Check if we have any results
 $resultCheck = mysqli_num_rows($result); 
-                    
+
 // Check if we have any results
 if ($resultCheck > 0) 
 {
     if ($row = mysqli_fetch_assoc($result))
         {
-            echo "exists";
-            // update score
+
+            // Update score table for the current user for the card just played
+            $sql = "UPDATE score SET answer = '$answer' WHERE user_id_fk = '$user_id' AND card_id_fk = '$card_id'";
+            
+            // Run the query
+            mysqli_query($conn, $sql);
         }
 }
 else
 {
-    echo "doesn't exist";
-    // add new record
+        // Add new record
+        // Insert the user into the database
+        $sql = "INSERT INTO score (user_id_fk, card_id_fk, answer) VALUES ('$user_id', '$card_id', '$answer');";
+                    
+        mysqli_query($conn, $sql);
 }

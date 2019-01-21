@@ -21,6 +21,8 @@ include('includes/dbh.inc.php');
 // The ID of the card for question and answer loading, gets it from the URL
 $card_id = htmlspecialchars($_GET["card_id"]);
 
+// Store card_id in a session
+$_SESSION['card_id'] = $card_id;
 ?>
 
 <!DOCTYPE html>
