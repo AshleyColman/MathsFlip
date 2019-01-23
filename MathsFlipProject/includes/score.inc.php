@@ -51,6 +51,7 @@ if (isset($_POST['wrong']))
 // Get the current card id
 $card_id = $_SESSION['card_id'];
 
+// See if a score exists for a user with the current card answered
 $sql = "SELECT * FROM score WHERE user_id_fk = $user_id AND card_id_fk = $card_id"; 
 
 // Send query and return results
@@ -79,3 +80,43 @@ else
                     
         mysqli_query($conn, $sql);
 }
+
+
+// Get the category selected
+$category = $_SESSION['category'];
+// Get the total number of cards for the category
+$total_num_cards = $_SESSION['total_num_cards'];
+
+// Check if next card is to be generated, or the results screen is to be displayed
+
+// If the current card is the last card end the game
+if ($card_id == $total_num_cards)
+{
+    $endGame = TRUE; 
+}
+// If the current card is not the last card redirect to the next card in gameplay page
+if ($card_id < $total_num_cards)
+{
+    $endGame = FALSE;
+}
+
+// End the game
+if ($endGame == TRUE)
+{
+    // Send user to results screen
+    header("Location: ../results.php");
+    exit();
+}
+// Continue the game
+if ($endGame == FALSE)
+{
+    // Increment card_id for next card
+    $card_id++;
+    
+    // Send user to the next card
+    header("Location: ../gameplay.php?category=$category&card_id=$card_id");
+    exit();
+}
+
+
+

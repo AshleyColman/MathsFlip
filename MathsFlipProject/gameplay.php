@@ -14,15 +14,22 @@ else
 
 // Get the category selected for generating questions
 $category = (include('includes/gameplay.inc.php'));
+$_SESSION['category'] = $category;
 
 // Connect to database
 include('includes/dbh.inc.php');
 
 // The ID of the card for question and answer loading, gets it from the URL
 $card_id = htmlspecialchars($_GET["card_id"]);
-
 // Store card_id in a session
 $_SESSION['card_id'] = $card_id;
+
+// Get amount of rows from category, total number of cards in the set
+$sql = "SELECT * FROM number";
+$result = mysqli_query($conn, $sql);
+$total_num_cards = mysqli_num_rows($result); // Total number of cards in the category
+// Store total number of cards in session
+$_SESSION['total_num_cards'] = $total_num_cards;
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +52,7 @@ $_SESSION['card_id'] = $card_id;
     
 </head>
 <body>
-    <header id="gameplay-header">Card <?php echo $card_id ?> of 100</header> <!-- Gets the card_id and displays it -->
+    <header id="gameplay-header">Card <?php echo $card_id ?> of <?php echo $total_num_cards ?></header> <!-- Gets the card_id and displays it -->
     
     <!-- Card -->
     <div class="card-container"> <!-- The cards container -->
@@ -114,16 +121,11 @@ $_SESSION['card_id'] = $card_id;
         </div>
     </div>
     
-    <?php
-    // Increment card ID for next card after clicking the buttons
-    $card_id++;
-    ?>
-    
     <!-- Buttons -->
     <div class="card-button-container">
         <form action="includes/score.inc.php" method="POST"> <!-- When the user presses a button call score.inc.php -->
-        <a href="gameplay.php?category=number&card_id=<?php echo $card_id ?>"><button class="card-button" id="card-button-correct" type="submit" name="correct">Correct</button></a> <!-- Correct button, links user to next card page with card_id incremented -->
-        <a href="gameplay.php?category=number&card_id=<?php echo $card_id ?>"><button class="card-button" id="card-button-wrong" type="submit" name="wrong">Wrong</button></a> <!-- Wrong button, links user to next card with card_id incremented -->
+        <button class="card-button" id="card-button-correct" type="submit" name="correct">Correct</button> <!-- Correct button, links user to next card page with card_id incremented -->
+            <button class="card-button" id="card-button-wrong" type="submit" name="wrong">Wrong</button> <!-- Wrong button, links user to next card with card_id incremented -->
         </form>
         <button class="card-button" id="card-button-tip">Tip</button> <!-- Tip button -->
     </div>
