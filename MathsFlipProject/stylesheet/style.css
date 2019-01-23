@@ -1,3 +1,4 @@
+/* All */
 *
 {
     margin:0;
@@ -5,11 +6,13 @@
     font-family:"Arial";
 }
 
+/* Body of pages */
 body
 {
     background-color:#e6e6e6;
 }
 
+/* Header */
 header
 {
     background-color:#009F9A;
@@ -29,6 +32,7 @@ header
     color:white;
 }
 
+/* Container for the logo */
 #logo-container
 {
     width:50%;
@@ -37,11 +41,13 @@ header
     color:white;
 }
 
+/* Card logo styling found on index page */
 #img-card
 {
     width:500px;
 }
 
+/* Index pages heading styling */
 #index-heading
 {
     color:white;
@@ -49,6 +55,7 @@ header
     font-size:7em;
 }
 
+/* Index pages subheading styling */
 #index-subheading
 {
     color:white;
@@ -57,12 +64,14 @@ header
     margin-top:10px;
 }
 
+/* Content area styling */
 #content
 {
     width:100%;
     height:902px;
 }
 
+/* Menu container on main pages */
 #menu-container
 {
     width:65%;
@@ -74,6 +83,7 @@ header
     line-height:3;
 }
 
+/* Category menu container styling */
 #category-menu-container
 {
     width:95%;
@@ -85,6 +95,7 @@ header
     line-height:3;
 }
 
+/* Buttons */
 .button
 {
     background-color:#009F9A;
@@ -94,6 +105,7 @@ header
     color:white;
 }
 
+/* Standard button hover */
 .button:hover
 {
     background-color:#0E86A9;
@@ -110,21 +122,25 @@ header
     line-height:5;
 }
 
+/* Category button hover */
 .category-button:hover
 {
     background-color:#0E86A9;
 }
 
+/* Menu buttons */
 .menu-button
 {
     margin-top:110px;
 }
 
+/* Category menu buttons */
 .category-menu-button
 {
     margin-top:110px;
 }
 
+/* Category icon section */
 .category-icon
 {
     float:left;
@@ -139,6 +155,7 @@ header
     vertical-align: middle;
 }
 
+/* Category name section */
 .category-name
 {
     display:inline-block;
@@ -146,6 +163,7 @@ header
     height:100%;
 }
 
+/* Category percentage section */
 .category-percentage
 {
     float:right;
@@ -153,6 +171,7 @@ header
     height:100%;
 }
 
+/* Categrory score bar */
 .category-scorebar
 {
     width:100%;
@@ -160,6 +179,7 @@ header
     background-color:#2861AB;
 }
 
+/* Overall scorebar on the category page */
 #overall-scorebar
 {
     width:100%;
@@ -167,6 +187,7 @@ header
     background-color:#2861AB;
 }
 
+/* Overall scorebar paragraphs on the category page */
 #overall-scorebar p
 {
     color:white;
@@ -175,7 +196,7 @@ header
     text-align: center;
 }
 
-
+/* Form styling */
 form
 {
     color:black;
@@ -183,6 +204,7 @@ form
     color:#009F9A;
 }
 
+/* Input field styling */
 input
 {
     width:100%;
@@ -196,12 +218,14 @@ input
     text-align: center;
 }
 
+/* Styling for focused input fields on login/signup */
 input:focus
 {
     background-color:#009F9A;
     color:white;
 }
 
+/* log-form button styling on login/signup */
 #log-form-button
 {
     margin-top:60px;
@@ -285,10 +309,6 @@ input:focus
 /* The card image  */
 .card-image img
 {
-    /*
-    height:100%;
-    width:100%;
-    */
     vertical-align:middle;
 }
 
@@ -349,6 +369,127 @@ input:focus
     background-color:#1F4C87;
 }
 
+/* Results page header */
+#results-header
+{
+    background-color:#009F9A;
+    width:100%;
+    height:120px;
+    font-size:3em;
+    text-align:center;
+    line-height:2.4; /* Position in middle */
+    color:white;
+}
+
+/* Results menu container */
+#results-menu-container
+{
+    width:95%;
+    height:1150px;
+    margin:auto;
+    color:white;
+    font-size:3em;
+    text-align:center;
+    line-height:3;
+}
+
+/* Correct button on results screen */
+#results-correct-button
+{
+    background-color:#129E00;
+}
+
+/* Correct button on results screen hover */
+#results-correct-button:hover
+{
+    background-color:#119000;
+}
+
+/* Wrong button on results screen */
+#results-wrong-button
+{
+    background-color:#D11400;
+}
+
+/* Wrong button on results screen hover */
+#results-wrong-button:hover
+{
+    background-color:#BE1300;
+}
+
+/* Retry button on results screen */
+#results-retry-button
+{
+    background-color:#2861AB;
+}
+
+/* Retry button on results screen hover */
+#results-retry-button:hover
+{
+    background-color:#25599C;
+}
+
+/* Next button on results screen */
+#results-next-button
+{
+    background-color:#2861AB;
+}
+
+/* Next button on results screen hover */
+#results-next-button:hover
+{
+    background-color:#25599C;
+}
+
+/* Achievement button on results screen */
+#results-achievement-button
+{
+    width:90%;
+    margin-top:50px;
+    background-color:#54368E;
+}
+
+/* Achievement button on results screen hover */
+#results-achievement-button:hover
+{
+    width:90%;
+    margin-top:50px;
+    background-color:#4D3282;
+}
+
+/* Results page buttons */
+.results-button
+{
+    width:100%;
+    height:250px;
+    font-size:1em;
+    color:white;
+    line-height:5;
+}
+
+/* Results page buttons hover */
+.results-button:hover
+{
+    background-color:#0E86A9;
+}
+
+/* Results scorebar */
+.results-scorebar
+{
+    width:100%;
+    height:25px;
+    background-color:white;
+}
+
+/* Results page button container */
+.results-button-container
+{
+    margin:auto;
+    width:100%;
+    height:200px;
+    text-align:center; 
+}
+
 footer
 {
     background-color:#009F9A;
@@ -367,6 +508,13 @@ footer
 {
     width:100%;
     height:400px;
+}
+
+/* Footer space specifically for the results page */
+#results-footerspace
+{
+    width:100%;
+    height:300px;
 }
 
 
