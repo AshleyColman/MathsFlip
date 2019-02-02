@@ -1,6 +1,24 @@
 <?php
 // Start the session
 session_start();
+
+// Get the total number of cards for calculations with percentage correct and incorrect
+$total_num_cards = $_SESSION['total_num_cards'];
+
+// Total correct cards 
+$totalcorrect = $_SESSION['totalcorrect'];
+// Total wrong cards
+$totalwrong = $_SESSION['totalwrong'];
+// Total percentage correct
+$percentagecorrect = ($totalcorrect / $total_num_cards) * 100;
+// Total percentage wrong
+$percentagewrong = ($totalwrong / $total_num_cards) * 100;
+
+// The highscore of the game
+$_SESSION['highscore'] = $percentagecorrect;
+
+// Update highscores
+include 'includes/highscore.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,26 +48,30 @@ session_start();
     <div id="results-menu-container">
         
         <!-- Category listing -->
-    <div class="category-button category-menu-button">
+    
+    <div class="results-button results-menu-button" id="results-category-button">
+        <div class="results-infobar">Category</div>
         <div class="category-icon"><img src="img/cube.png" alt="cube"></div>
         <div class="category-name">Number</div>
         <div class="category-percentage">15%</div>
         </div>
-        <div class="category-scorebar"></div>
+        <div class="results-scorebar"></div>
         
         <!-- Correct results -->
-    <div class="results-button category-menu-button" id="results-correct-button">
+    <div class="results-button results-menu-button" id="results-correct-button">
+        <div class="results-infobar">Correct</div>
         <div class="category-icon"><img src="img/tick.png" alt="tick"></div>
-        <div class="category-name">5 correct</div>
-        <div class="category-percentage">100%</div>
+        <div class="category-name"><?php echo $totalcorrect ?></div>
+        <div class="category-percentage"><?php echo $percentagecorrect ?>%</div>
         </div>
         <div class="results-scorebar"></div>    
         
         <!-- Wrong results -->
-    <div class="results-button category-menu-button" id="results-wrong-button">
+    <div class="results-button results-menu-button" id="results-wrong-button">
+        <div class="results-infobar">Wrong</div>
         <div class="category-icon"><img src="img/cross.png" alt="cross"></div>
-        <div class="category-name">0 wrong</div>
-        <div class="category-percentage">0%</div>
+        <div class="category-name"><?php echo $totalwrong ?></div>
+        <div class="category-percentage"><?php echo $percentagewrong ?>%</div>
         </div>
         <div class="results-scorebar"></div>  
     

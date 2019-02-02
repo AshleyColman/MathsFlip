@@ -35,12 +35,17 @@ if ($resultCheck > 0)
 if (isset($_POST['correct']))
 {
     // Assign answer to be correct
-    $answer = TRUE; 
+    $answer = TRUE;
+    // Increase number of correct cards by 1
+    $_SESSION['totalcorrect'] += 1;
 }
+// Check if the "wrong" button was pressed
 if (isset($_POST['wrong']))
 {
-    // If the answer is wrong assign answer to be wrong
+    // Assign answer to be wrong
     $answer = FALSE; 
+    // Increase number of wrong cards by 1
+    $_SESSION['totalwrong'] += 1;
 }
 
 

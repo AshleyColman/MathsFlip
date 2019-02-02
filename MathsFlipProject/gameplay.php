@@ -30,6 +30,16 @@ $result = mysqli_query($conn, $sql);
 $total_num_cards = mysqli_num_rows($result); // Total number of cards in the category
 // Store total number of cards in session
 $_SESSION['total_num_cards'] = $total_num_cards;
+
+// If it's the first card reset gameplay stats
+if ($card_id <= 1)
+{
+    $_SESSION['totalcorrect'] = 0;
+    $_SESSION['totalwrong'] = 0;
+    $_SESSION['percentagecorrect'] = 0;
+    $_SESSION['percetnagewrong'] = 0;
+}
+
 ?>
 
 <!DOCTYPE html>
