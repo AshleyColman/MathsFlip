@@ -20,6 +20,8 @@ session_start();
 <script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 <!-- Linking custom jQuery functions file -->
 <script src="jquery-ui-1.12.1.custom/custom-jquery-functions.js"></script> 
+
+
     
 </head>
 <body>
@@ -31,6 +33,9 @@ session_start();
         <h2 id="index-subheading">About</h2>
     </header>
 
+    About page content is coming soon
+    
+    
     
     <footer>University Centre Weston</footer>
 </body>

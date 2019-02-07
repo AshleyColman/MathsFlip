@@ -40,6 +40,8 @@ else
         <h1 id="index-heading">MathsFlip</h1>
         <h2 id="index-subheading">Achievements</h2>
     </header>
+    
+    Achievement page content is coming soon
 
     
     <footer>University Centre Weston</footer>

@@ -52,7 +52,7 @@ if (isset($_POST['submit']))
                     
                     mysqli_query($conn, $sql);
                     
-                    header("Location: ../index.php?signup=success");
+                    header("Location: ../login.php?signup=success");
                     exit();
                 }
             }

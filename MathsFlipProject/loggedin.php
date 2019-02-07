@@ -2,6 +2,9 @@
 // Start the session
 session_start();
 
+// Connect to database
+include 'includes/dbh.inc.php';
+
 // Check the user has logged in to access the page
 if (isset($_SESSION['username'])){
     // Load the page
@@ -11,6 +14,32 @@ else
     // Redirect to the login page as not logged in
     header('Location: login.php');
 }
+
+
+// Get username from session variable
+$username = $_SESSION['username']; 
+
+// Assign user_id to session variable
+// Get the user_id from the username session variable
+$sql = "SELECT * FROM users WHERE user_username = '$username'"; 
+
+// Send query and return results
+$result = mysqli_query($conn, $sql); 
+// Check if we have any results
+$resultCheck = mysqli_num_rows($result); 
+                    
+// Check if we have any results
+// Set the user_id to a session variable
+if ($resultCheck > 0) 
+{
+    if ($row = mysqli_fetch_assoc($result))
+        {
+            // Assigns the user_id session variable to the user_id found
+            $_SESSION['user_id'] = $row['user_id'];
+            $user_id = $_SESSION['user_id'];
+        }
+}
+
 ?>
 
 <!DOCTYPE html>

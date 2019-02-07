@@ -2,6 +2,8 @@
 // Start the session
 session_start();
 
+
+
 // Check the user has logged in to access the page
 if (isset($_SESSION['username'])){
     // Load the page
@@ -11,6 +13,13 @@ else
     // Redirect to the login page as not logged in
     header('Location: login.php');
 }
+
+// Assign category percentages for percentage bars
+include('includes/category.inc.php');
+
+// Get number category percentage
+$number_category_percentage = $_SESSION['number_category_percentage'];
+$number_category_color = $_SESSION['number_category_color'];
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +42,7 @@ else
     
 </head>
 <body>
+    
     <header>
         <div id="logo-container">
             <img id="img-card" src="img/card.png" alt="card">
@@ -55,7 +65,13 @@ else
         <div class="category-name">Number</div>
         <div class="category-percentage">15%</div>
         </div></a>
-        <div class="category-scorebar"></div>
+        <div class="category-scorebar">
+        
+            <div class="meter <?php echo $number_category_color?>">
+            <span style="width:<?php echo $number_category_percentage ?>%"></span>
+            </div>
+            
+        </div>
         
         <a href="#"><button class="category-button category-menu-button">
         <div class="category-icon"><img src="img/algebra.png" alt="algebra equation"></div>
@@ -88,5 +104,6 @@ else
     </div>
     
     <footer>University Centre Weston</footer>
+    
 </body>
 </html>

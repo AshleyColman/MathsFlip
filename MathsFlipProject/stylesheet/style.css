@@ -179,6 +179,67 @@ header
     background-color:#2861AB;
 }
 
+/* Meter in the score bar */
+.meter 
+{ 
+	height: 20px;  /* Can be anything */
+	position: relative;
+	background: #555;
+	padding: 10px;
+	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+/* meter span */
+.meter > span 
+{
+  display: block;
+  height: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 
+    inset 0 2px 9px  rgba(255,255,255,0.3),
+    inset 0 -2px 6px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* red meter */
+.yellow > span 
+{
+  background-color: yellow;
+  background-image: linear-gradient(to bottom, orange, yellow);
+}
+
+/* green meter */
+.green > span 
+{
+  background-color: rgb(43,194,83);
+  background-image: linear-gradient(
+    center bottom,
+    rgb(43,194,83) 37%,
+    rgb(84,240,84) 69%
+  );
+}
+
+/* orange meter */
+.orange > span 
+{
+  background-color: #f1a165;
+  background-image: linear-gradient(to bottom, #f1a165, #f36d0a);
+}
+
+/* red meter */
+.red > span 
+{
+  background-color: #f0a3a3;
+  background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
+}
+
+
+
+
 /* Overall scorebar on the category page */
 #overall-scorebar
 {
@@ -294,7 +355,7 @@ input:focus
     width:100%;
     height:10%;
     background-color:#2861AB;
-    line-height:1.8;
+    line-height:2;
     color:white;
     font-size:3em;
 }
@@ -309,6 +370,8 @@ input:focus
 /* The card image  */
 .card-image img
 {
+    max-width:80%;
+    max-height:80%;
     vertical-align:middle;
 }
 
@@ -516,6 +579,61 @@ input:focus
     text-align:center; 
 }
 
+/* The animation code */
+@keyframes highscore {
+  0%   {background-color: darkred;}
+  10%  {background-color: red;}
+  20%  {background-color: orangered;}   
+  30%  {background-color: rebeccapurple;}
+  40%  {background-color: purple;}
+  50% {background-color: royalblue;}
+  60%  {background-color: dodgerblue;}
+  70%  {background-color: blue;}
+  80%  {background-color: crimson;}
+  90%   {background-color: deeppink;}
+  100%   {background-color: darkred;}
+}
+
+/* Highscore pop up */
+#highscore
+{
+    position: fixed;
+    z-index:100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    animation-name: highscore;
+    animation-duration: 5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    
+    height:500px;
+    width:500px;;
+    border-radius: 50%;
+    border:10px solid black;
+    font-size:3.8em;
+    font-weight:bolder;
+    color:white;
+
+ 
+    /* Display text in center */
+    display:flex;
+    align-items: center; /* align vertical */
+    justify-content: center; /* align horizontal */
+    text-align:center;
+    line-height:1.2;
+}
+
+
+
+
+
+
+
+
+
+
 footer
 {
     background-color:#009F9A;
@@ -543,7 +661,6 @@ footer
     height:400px;
 }
 
-
 /* Normal link */
 a:link
 {
@@ -556,3 +673,11 @@ a:visited
     color:white;
     text-decoration:none;
 }
+
+
+
+
+
+
+
+

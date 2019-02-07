@@ -32,7 +32,7 @@ if ($resultCheck > 0)
 {
     if ($row = mysqli_fetch_assoc($result))
         {
-            $all_time_highscore = $row;
+            $all_time_highscore = $row[$category];
         
             // Do a highscore check to see if the recent plays highscore is greater than the all time highscore
             if ($current_game_highscore > $all_time_highscore)
@@ -40,26 +40,31 @@ if ($resultCheck > 0)
                 // Update the highscore in the database for the current user
                 $sql = "UPDATE highscore SET $category = '$current_game_highscore' WHERE user_id_fk = '$user_id'";
             
+                // Set it is a new highscore for effect in results page
+                $_SESSION['new_highscore'] = TRUE;
+                
                 // Run the query
                 mysqli_query($conn, $sql);
                 
-                echo "updated";
+                // echo "updated";
+            }  
+            else
+            {
+                // Set highscore effect to be off
+                $_SESSION['new_highscore'] = FALSE;
             }
-
-
-            // Insert highscore into the category
-            //$sql = "UPDATE $category FROM highscore WHERE user_id_fk = $user_id";
-            //echo "updated";
-            // Run the query
-           // mysqli_query($conn, $sql);
-                       
         }
-        else
-        {       
-            // Insert the highscore into the table
-            $sql = "INSERT INTO highscore (user_id_fk, $category) VALUES ('$user_id', '$highscore');";
-            echo "inserted";
-            mysqli_query($conn, $sql);
-        }
+}
+else
+{  
+        // Insert the highscore into the table
+        $sql = "INSERT INTO highscore (user_id_fk, $category) VALUES ('$user_id', '$current_game_highscore');";
+        
+        // Set it is a new highscore for effect in results page
+        $_SESSION['new_highscore'] = TRUE;
+    
+        mysqli_query($conn, $sql);
+    
+        // echo "inserted";
 }
 

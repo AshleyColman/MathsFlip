@@ -5,28 +5,8 @@ session_start();
 // Connect to database
 include 'dbh.inc.php';
 
-// Get username from session variable
-$username = $_SESSION['username']; 
-
-// Get the user_id from the username session variable
-$sql = "SELECT * FROM users WHERE user_username = '$username'"; 
-
-// Send query and return results
-$result = mysqli_query($conn, $sql); 
-// Check if we have any results
-$resultCheck = mysqli_num_rows($result); 
-                    
-// Check if we have any results
-// Set the user_id to a session variable
-if ($resultCheck > 0) 
-{
-    if ($row = mysqli_fetch_assoc($result))
-        {
-            // Assigns the user_id session variable to the user_id found
-            $_SESSION['user_id'] = $row['user_id'];
-            $user_id = $_SESSION['user_id'];
-        }
-}
+// Get the user_id from session variable
+$user_id = $_SESSION['user_id'];
 
 
 // UPDATE SCORE
