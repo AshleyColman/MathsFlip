@@ -625,15 +625,6 @@ input:focus
     line-height:1.2;
 }
 
-
-
-
-
-
-
-
-
-
 footer
 {
     background-color:#009F9A;
@@ -659,6 +650,82 @@ footer
 {
     width:100%;
     height:400px;
+}
+
+
+/* Achievements page */
+
+/* Achievement container */
+#achievements-container {
+    position:relative;
+    margin:auto;
+    margin-top:100px;
+    width:90%;
+    height:680px;
+    background-color:#2861AB;
+}
+
+/* Clear floats after the achievement columns */
+#achievements-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Infobar div */
+.infobar
+{
+    width:100%;
+    height:80px;
+    background-color:white;
+    color:black;
+    line-height:1.8; /* Position text in the middle of the bar */
+    font-weight:bold;
+    font-size:3em;
+    text-align:center;
+}
+
+/* Achievement div */
+.achievement {
+    position: relative;
+    float: left;
+    width: 25%;
+    height:200px;
+}
+
+/* Achievement image */
+.achievement img
+{
+    max-height: 100%;
+    min-height: 80%;
+    display:block;
+    margin:auto;
+    margin-top:20px; /* Vertically centers the image */
+}
+
+/* Achievement image hover */
+.achievement img:hover
+{
+    min-height: 85%;
+}
+
+/* Overlay effect */
+.achievement .after {
+    position:absolute;
+    text-align:center;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #FFF;
+    bottom:0;
+    line-height:15;
+    font-size:1.5em;
+}
+
+/* Overlay effect on hover */
+.achievement:hover .after {
+    display: block;
+    background: rgba(0, 0, 0, .6);
 }
 
 /* Normal link */

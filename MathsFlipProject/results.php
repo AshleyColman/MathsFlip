@@ -11,6 +11,17 @@ $totalcorrect = $_SESSION['totalcorrect'];
 $totalwrong = $_SESSION['totalwrong'];
 // Total percentage correct
 $percentagecorrect = ($totalcorrect / $total_num_cards) * 100;
+$_SESSION['percentagecorrect'] = $percentagecorrect;
+
+// Increment by 1 for x300 achievement counter
+if ($percentagecorrect == 100)
+{
+    $_SESSION['maxpercentcounter'] += 1;
+}
+
+$_SESSION['one_set_completed'] = TRUE;
+
+
 // Total percentage wrong
 $percentagewrong = ($totalwrong / $total_num_cards) * 100;
 
@@ -22,6 +33,10 @@ include 'includes/highscore.inc.php';
 
 // Get whether it is a new highscore or not to display the effect
 $new_highscore = $_SESSION['new_highscore'];
+
+// Include the achievements file to check for achievements
+// Connect to database
+include('includes/achievement.inc.php');
 ?>
 
 <!DOCTYPE html>

@@ -7,7 +7,8 @@ include 'dbh.inc.php';
 
 // Get the user_id from session variable
 $user_id = $_SESSION['user_id'];
-
+// Get the current card id
+$card_id = $_SESSION['card_id'];
 
 // UPDATE SCORE
 
@@ -18,6 +19,14 @@ if (isset($_POST['correct']))
     $answer = TRUE;
     // Increase number of correct cards by 1
     $_SESSION['totalcorrect'] += 1;
+    // Increase 1 to the combo
+    $_SESSION['currentcombo'] += 1;
+    
+    // Check if the current combo is the new highest combo
+    if ($_SESSION['currentcombo'] > $_SESSION['highestcombo'])
+        {
+            $_SESSION['highestcombo'] = $_SESSION['currentcombo'];
+        }
 }
 // Check if the "wrong" button was pressed
 if (isset($_POST['wrong']))
@@ -26,15 +35,14 @@ if (isset($_POST['wrong']))
     $answer = FALSE; 
     // Increase number of wrong cards by 1
     $_SESSION['totalwrong'] += 1;
+    // Reset the combo
+    $_SESSION['combo'] = 0;
 }
 
 
 // Check score table to see if user has already got existing score for the card id (check user_id against card_id for existing match)
 // If card score exists, update the record with new result
 // If card score does not exist, add the new record (user_id to card_id in score table)
-
-// Get the current card id
-$card_id = $_SESSION['card_id'];
 
 // See if a score exists for a user with the current card answered
 $sql = "SELECT * FROM score WHERE user_id_fk = $user_id AND card_id_fk = $card_id"; 

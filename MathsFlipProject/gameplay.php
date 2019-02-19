@@ -37,8 +37,14 @@ if ($card_id <= 1)
     $_SESSION['totalcorrect'] = 0;
     $_SESSION['totalwrong'] = 0;
     $_SESSION['percentagecorrect'] = 0;
-    $_SESSION['percetnagewrong'] = 0;
+    $_SESSION['percentagewrong'] = 0;
+    $_SESSION['currentcombo'] = 0;
+    $_SESSION['highestcombo'] = 0;
 }
+
+// Include the achievements file to check for achievements
+// Connect to database
+include('includes/achievement.inc.php');
 
 ?>
 
