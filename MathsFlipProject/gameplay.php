@@ -79,26 +79,7 @@ include('includes/achievement.inc.php');
             
             <div class="card-front"> <!-- The front of the card -->
                 <div class="card-header">Here's your question</div> <!-- The header tab for the font of the card -->
-                <p class="card-text">
-            
-                <?php 
-                // DISPLAY QUESTION
-                    $sql = "SELECT question FROM $category WHERE id = $card_id;"; // Query, gets the question from the category selected
-                    $result = mysqli_query($conn, $sql); // Send query and return results
-                    $resultCheck = mysqli_num_rows($result); // Check if we have any results
-                    
-                    // Check if we have any results
-                    // Output the question
-                    if ($resultCheck > 0) 
-                    {
-                        if ($row = mysqli_fetch_assoc($result))
-                        {
-                            echo $row['question'];
-                        }
-                    }
-                ?>
-                    
-                </p>
+
                 
                 <div class="card-image">
                     
@@ -116,26 +97,6 @@ include('includes/achievement.inc.php');
         
         <div class="card-back"> <!-- The back of the card -->
             <div class="card-header">Did you get it correct?</div> <!-- The header tab for the back of the card --> 
-            <p class="card-text">
-            
-                <?php 
-                // DISPLAY ANSWER
-                    $sql = "SELECT answer FROM $category WHERE id = $card_id;"; // Query, gets the answer from the category selected
-                    $result = mysqli_query($conn, $sql); // Send query and return results
-                    $resultCheck = mysqli_num_rows($result); // Check if we have any results
-                    
-                    // Check if we have any results
-                    // Output the answer
-                    if ($resultCheck > 0) 
-                    {
-                        if ($row = mysqli_fetch_assoc($result))
-                        {
-                            echo $row['answer'];
-                        }
-                    }
-                    
-                ?>
-                </p> 
                 
                 <div class="card-image">
                     
