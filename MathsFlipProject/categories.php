@@ -45,7 +45,9 @@ $number_category_color = $_SESSION['number_category_color'];
     
     <header>
         <div id="logo-container">
-            <img id="img-card" src="img/card.png" alt="card">
+            <div id="img-card">
+                <img src="img/logo.png" alt="card">
+            </div>
         </div>
         <h1 id="index-heading">MathsFlip</h1>
         <h2 id="index-subheading">Categories</h2>
@@ -54,7 +56,7 @@ $number_category_color = $_SESSION['number_category_color'];
     <div id="content">
         
     <div id="overall-scorebar">
-        <p>Total Progress</p>    
+         
     </div>
         
     <div id="category-menu-container">
@@ -63,7 +65,7 @@ $number_category_color = $_SESSION['number_category_color'];
         <a href="gameplay.php?category=number&card_id=1"><div class="category-button category-menu-button">
         <div class="category-icon"><img src="img/cube.png" alt="cube"></div>
         <div class="category-name">Number</div>
-        <div class="category-percentage">15%</div>
+        <div class="category-percentage">25%</div>
         </div></a>
         <div class="category-scorebar">
         

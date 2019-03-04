@@ -20,6 +20,73 @@ header
     height:720px;
 }
 
+#bold
+{
+    font-weight:bold;
+}
+
+/* About page h1 */
+#about-h1
+{
+    margin-top:50px;
+    margin-bottom:50px;
+    color:#009F9A;
+    font-size:3em;
+    text-align: center;
+}
+
+/* About page container */
+#about-container
+{
+    width:90%;
+    margin:auto;
+    height:700px;
+    background-color:white;
+    border:1px solid #009F9A;
+}
+
+/* About page p */
+#about-p
+{
+    width:90%;
+    margin:auto;
+    margin-top:50px;
+    font-size:2em;
+    height:600px;
+    text-align: 
+}
+
+/* Instruction page h1 */
+#instructions-h1
+{
+    margin-top:50px;
+    margin-bottom:50px;
+    color:#009F9A;
+    font-size:3em;
+    text-align: center;
+}
+
+/* Instruction page container */
+#instructions-container
+{
+    width:90%;
+    margin:auto;
+    height:1300px;
+    background-color:white;
+    border:1px solid #009F9A;
+}
+
+/* Instruction page p */
+#instructions-p
+{
+    width:90%;
+    margin:auto;
+    margin-top:50px;
+    font-size:2em;
+    height:600px;
+    text-align: 
+}
+
 /* Gameplay page header */
 #gameplay-header
 {
@@ -35,6 +102,7 @@ header
 /* Container for the logo */
 #logo-container
 {
+    position: relative;
     width:50%;
     margin:auto;
     height:450px;
@@ -42,10 +110,17 @@ header
 }
 
 /* Card logo styling found on index page */
-#img-card
+#logo-container img
 {
-    width:500px;
+    position:absolute;
+    left:15%;
+    margin:auto;
+    margin-top:50px;
+    min-height:350px;
+    min-width:100px;
+    color:white;
 }
+
 
 /* Index pages heading styling */
 #index-heading
@@ -319,7 +394,6 @@ input:focus
     transform:rotateY(180deg);
 }
 
-
 /* The front and back of the card */
 .card-front, .card-back
 {
@@ -342,9 +416,9 @@ input:focus
 /* The card text questions */
 .card-text
 {
-    width:100%;
-    height:45%;
-    line-height:10;
+    margin:auto;
+    width:95%;
+    height:25%;
     color:black;
     font-size:3em;
 }
@@ -354,6 +428,7 @@ input:focus
 {
     width:100%;
     height:10%;
+    margin-bottom:200px;
     background-color:#2861AB;
     line-height:2;
     color:white;
@@ -363,7 +438,8 @@ input:focus
 /* The card image container */
 .card-image
 {
-    width:100%;
+    margin:auto;
+    width:95%;
     height:45%;
 }
 
@@ -652,6 +728,31 @@ footer
     height:400px;
 }
 
+/* Footer space for instructions page */
+#instructions-footerspace
+{
+    width:100%;
+    height:250px;
+}
+
+/* Footer space for instructions page */
+#loggedin-footerspace
+{
+    width:100%;
+    height:250px;
+}
+
+#about-footerspace
+{
+    width:100%;
+    height:250px;
+}
+
+#index-footerspace
+{
+    width:100%;
+    height:250px;
+}
 
 /* Achievements page */
 

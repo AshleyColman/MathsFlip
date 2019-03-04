@@ -70,8 +70,11 @@ include('includes/achievement.inc.php');
 <body>
     <header id="gameplay-header">Card <?php echo $card_id ?> of <?php echo $total_num_cards ?></header> <!-- Gets the card_id and displays it -->
     
+    
+
     <!-- Card -->
     <div class="card-container"> <!-- The cards container -->
+        
         <div class="card"> <!-- The card -->
             
             <div class="card-front"> <!-- The front of the card -->
@@ -96,6 +99,19 @@ include('includes/achievement.inc.php');
                 ?>
                     
                 </p>
+                
+                <div class="card-image">
+                    
+                    <?php
+                    // DISPLAY QUESTION IMAGE
+                        $sql = "SELECT questionimage FROM $category WHERE id = $card_id"; // Select the image for the card
+                        $result = mysqli_query($conn, $sql); // Send query and return results
+
+                        $imageresult=mysqli_fetch_array($result); // Get the image result
+                        echo '<img src="data:image/jpeg;base64,'.base64_encode( $imageresult['questionimage'] ).'"/>'; // Display image   
+                    ?>
+                    
+                </div>
             </div>
         
         <div class="card-back"> <!-- The back of the card -->
@@ -117,23 +133,22 @@ include('includes/achievement.inc.php');
                             echo $row['answer'];
                         }
                     }
+                    
                 ?>
+                </p> 
                 
                 <div class="card-image">
                     
                     <?php
                     // DISPLAY ANSWER IMAGE
-                        $sql = "SELECT image FROM $category WHERE id = $card_id"; // Select the image for the card
+                        $sql = "SELECT answerimage FROM $category WHERE id = $card_id"; // Select the image for the card
                         $result = mysqli_query($conn, $sql); // Send query and return results
                         $imageresult=mysqli_fetch_array($result); // Get the image result
-                        echo '<img src="data:image/jpeg;base64,'.base64_encode( $imageresult['image'] ).'"/>'; // Display image   
+                        echo '<img src="data:image/jpeg;base64,'.base64_encode( $imageresult['answerimage'] ).'"/>'; // Display image   
                     ?>
                     
                 </div>
-
-                
-            </p>            
-        </div>
+            </div>
         </div>
     </div>
     

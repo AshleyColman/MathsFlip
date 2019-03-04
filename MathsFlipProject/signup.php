@@ -25,7 +25,9 @@ session_start();
 <body>
     <header>
         <div id="logo-container">
-            <img id="img-card" src="img/card.png" alt="card">
+            <div id="img-card">
+                <img src="img/logo.png" alt="card">
+            </div>
         </div>
         <h1 id="index-heading">MathsFlip</h1>
         <h2 id="index-subheading">Signup</h2>

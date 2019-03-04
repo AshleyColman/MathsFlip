@@ -70,26 +70,7 @@ function UnlockAchievement($achievement_id_pass, $user_id_pass, $conn_pass)
         mysqli_query($conn_pass, $sql);
     }
     
-    // Set unlocked to true and return it for checking for reward achieve
-    $unlocked = TRUE;
-    return $unlocked;
 }
-
-function CheckAllUnlocked($unlocked_pass)
-{
-    $ResultCheck = TRUE;
-    for ($iCount = 0; $iCount < sizeof($unlocked_pass); $iCount++)
-    {
-        if ($unlocked_pass[$iCount] == FALSE)
-        {
-            $ResultCheck == FALSE;
-        }
-    }
-    return $ResultCheck;
-}
-
-// Number of unlocked achievements for reward achieve
-$unlocked = array(10);
 
 // oneset achievement
 if ($one_set_completed == TRUE)
@@ -98,13 +79,9 @@ if ($one_set_completed == TRUE)
     $achievement_id = GetAchievementID("oneset", $conn);
     
     // Unlock achievement
-    $unlocked[0] =  UnlockAchievement($achievement_id, $user_id, $conn);
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[0] = FALSE;
-}
+
 
 // streak5 achievement
 if ($highestcombo >= 5)
@@ -115,11 +92,7 @@ if ($highestcombo >= 5)
     // Unlock achievement
     $unlocked[1] = UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[1] = FALSE;
-}
+
 
 // streak10 achievement
 if ($highestcombo >= 10)
@@ -128,12 +101,7 @@ if ($highestcombo >= 10)
     $achievement_id = GetAchievementID("streak10", $conn);
     
     // Unlock achievement
-    $unlocked[2] = UnlockAchievement($achievement_id, $user_id, $conn);
-}
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[2] = FALSE;
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
 
 // streak30 achievement
@@ -143,13 +111,9 @@ if ($highestcombo >= 30)
     $achievement_id = GetAchievementID("streak30", $conn);
     
     // Unlock achievement
-    $unlocked[3] = UnlockAchievement($achievement_id, $user_id, $conn);
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[3] = FALSE;
-}
+
 
 // 25percent achievement
 if ($percentagecorrect >= 25)
@@ -158,13 +122,9 @@ if ($percentagecorrect >= 25)
     $achievement_id = GetAchievementID("25percent", $conn);
     
     // Unlock achievement
-    $unlocked[4] = UnlockAchievement($achievement_id, $user_id, $conn);
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[4] = FALSE;
-}
+
 
 // 50percent achievement
 if ($percentagecorrect >= 50)
@@ -173,13 +133,9 @@ if ($percentagecorrect >= 50)
     $achievement_id = GetAchievementID("50percent", $conn);
     
     // Unlock achievement
-    $unlocked[5] = UnlockAchievement($achievement_id, $user_id, $conn);
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[5] = FALSE;
-}
+
 
 // 75percent achievement
 if ($percentagecorrect >= 75)
@@ -190,11 +146,7 @@ if ($percentagecorrect >= 75)
     // Unlock achievement
     $unlocked[6] = UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[6] = FALSE;
-}
+
 
 // 90percent achievement
 if ($percentagecorrect >= 90)
@@ -203,13 +155,9 @@ if ($percentagecorrect >= 90)
     $achievement_id = GetAchievementID("90percent", $conn);
     
     // Unlock achievement
-    $unlocked[7] = UnlockAchievement($achievement_id, $user_id, $conn);
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[7] = FALSE;
-}
+
 
 // 100percent achievement
 if ($percentagecorrect >= 100)
@@ -218,13 +166,9 @@ if ($percentagecorrect >= 100)
     $achievement_id = GetAchievementID("100percent", $conn);
     
     // Unlock achievement
-    $unlocked[8] = UnlockAchievement($achievement_id, $user_id, $conn);
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
-{
-    // Set unlocked to false at start to prevent error
-    $unlocked[8] = FALSE;
-}
+
 
 // 100x3 achievement
 if ($maxpercentcounter >= 3)
@@ -233,22 +177,26 @@ if ($maxpercentcounter >= 3)
     $achievement_id = GetAchievementID("100x3", $conn);
     
     // Unlock achievement
-    $unlocked[9] = UnlockAchievement($achievement_id, $user_id, $conn);
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
-else
+
+// random achievement
+if ($maxpercentcounter >= 5)
 {
-    // Set unlocked to false at start to prevent error
-    $unlocked[9] = FALSE;
+    echo $maxpercentcounter;
+    // Get achievement id
+    $achievement_id = GetAchievementID("random100", $conn);
+    
+    // Unlock achievement
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }
 
-// Check if all achievements are unlocked to unlock the reward achievement
-$AllUnlockedCheck = CheckAllUnlocked($unlocked);
-
-if ($AllUnlockedCheck == TRUE)
+// reward achievement
+if ($maxpercentcounter >= 10)
 {
     // Get achievement id
     $achievement_id = GetAchievementID("reward", $conn);
     
     // Unlock achievement
-    $reward_unlocked = UnlockAchievement($achievement_id, $user_id, $conn);
+    UnlockAchievement($achievement_id, $user_id, $conn);
 }

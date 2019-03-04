@@ -20,7 +20,9 @@
 <body>
     <header>
         <div id="logo-container">
-            <img id="img-card" src="img/card.png" alt="card">
+            <div id="img-card">
+                <img src="img/logo.png" alt="card">
+            </div>
         </div>
         <h1 id="index-heading">MathsFlip</h1>
         <h2 id="index-subheading">GCSE Maths Revision</h2>
@@ -31,9 +33,12 @@
         <a href="about.php"><div class="button menu-button">About</div></a>
         <a href="signup.php"><div class="button menu-button">Sign up</div></a>
         <a href="login.php"><div class="button menu-button">Login</div></a>
+        <form action="includes/playasguest.inc.php" method="POST">
+        <button class="button" id="log-form-button" type="submit" name="submit">Play As Guest</button>
+        </form>
     </div>
     </div>
-    
+    <div id="index-footerspace"></div>
     <footer>University Centre Weston</footer>
 </body>
 </html>

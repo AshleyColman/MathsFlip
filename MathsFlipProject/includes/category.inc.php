@@ -46,6 +46,7 @@ $resultCheck = mysqli_num_rows($result);
         {
             // Set the category percentage to 0
             $_SESSION['number_category_percentage'] = 0;
+            $_SESSION['number_category_color'] = "white";
         }
 
 

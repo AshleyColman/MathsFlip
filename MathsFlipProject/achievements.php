@@ -38,7 +38,9 @@ include('includes/dbh.inc.php');
 <body>
     <header>
         <div id="logo-container">
-            <img id="img-card" src="img/card.png" alt="card">
+            <div id="img-card">
+                <img src="img/logo.png" alt="card">
+            </div>
         </div>
         <h1 id="index-heading">MathsFlip</h1>
         <h2 id="index-subheading">Achievements</h2>
@@ -94,8 +96,8 @@ include('includes/dbh.inc.php');
         
         <div class="achievement"><img src="img/achievements/<?php $returned_name = CheckAchievement(10, "100percent", $user_id, $conn); echo $returned_name;?>.png"><div class="after">Achieved 100%</div></div>
         <div class="achievement"><img src="img/achievements/<?php $returned_name = CheckAchievement(11, "100x3", $user_id, $conn); echo $returned_name;?>.png"><div class="after">Streak 100% x3</div></div>
-        <div class="achievement"><img src="img/achievements/<?php $returned_name = CheckAchievement(12, "random100", $user_id, $conn); echo $returned_name;?>.png"><div class="after">Random Mod 100%</div></div>
-        <div class="achievement"><img src="img/achievements/<?php $returned_name = CheckAchievement(13, "reward", $user_id, $conn); echo $returned_name;?>.png"><div class="after">Unlocked all</div></div>
+        <div class="achievement"><img src="img/achievements/<?php $returned_name = CheckAchievement(12, "random100", $user_id, $conn); echo $returned_name;?>.png"><div class="after">Streak 100% x5</div></div>
+        <div class="achievement"><img src="img/achievements/<?php $returned_name = CheckAchievement(13, "reward", $user_id, $conn); echo $returned_name;?>.png"><div class="after">Streak 100% x10</div></div>
     </div>
     <footer>University Centre Weston</footer>
 </body>

@@ -40,6 +40,10 @@ if ($resultCheck > 0)
         }
 }
 
+// Reset maxpercentcounter and oneset achievements to avoid error
+$_SESSION['maxpercentcounter'] = 0;
+$_SESSION['one_set_completed'] = FALSE;
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +68,9 @@ if ($resultCheck > 0)
 <body>
     <header>
         <div id="logo-container">
-            <img id="img-card" src="img/card.png" alt="card">
+            <div id="img-card">
+                <img src="img/logo.png" alt="card">
+            </div>
         </div>
         <h1 id="index-heading">MathsFlip</h1>
         <h2 id="index-subheading">GCSE Maths Revision</h2>
@@ -72,6 +78,8 @@ if ($resultCheck > 0)
 
     <div id="content">
     <div id="menu-container">
+        
+        <a href="instructions.php"><div class="button menu-button">Instructions</div></a>
         <a href="categories.php"><div class="button menu-button">Start Revising</div></a>
         <a href="achievements.php"><div class="button menu-button">Achievements</div></a>
 
@@ -81,6 +89,7 @@ if ($resultCheck > 0)
     </div>
     </div>
     
+    <div id="loggedin-footerspace"></div>
     <footer>University Centre Weston</footer>
 </body>
 </html>
