@@ -25,7 +25,7 @@ $card_id = htmlspecialchars($_GET["card_id"]);
 $_SESSION['card_id'] = $card_id;
 
 // Get amount of rows from category, total number of cards in the set
-$sql = "SELECT * FROM number";
+$sql = "SELECT * FROM $category";
 $result = mysqli_query($conn, $sql);
 $total_num_cards = mysqli_num_rows($result); // Total number of cards in the category
 // Store total number of cards in session
@@ -121,6 +121,6 @@ include('includes/achievement.inc.php');
         </form>
         <button class="card-button" id="card-button-tip">Tip</button> <!-- Tip button -->
     </div>
-    <footer>University Centre Weston</footer>
+    <footer>Weston College</footer>
 </body>
 </html>

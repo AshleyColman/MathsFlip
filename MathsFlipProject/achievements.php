@@ -99,7 +99,9 @@ include('includes/dbh.inc.php');
         <div class="achievement"><img src="img/achievements/<?php $returned_name = CheckAchievement(12, "random100", $user_id, $conn); echo $returned_name;?>.png"><div class="after">Streak 100% x5</div></div>
         <div class="achievement"><img src="img/achievements/<?php $returned_name = CheckAchievement(13, "reward", $user_id, $conn); echo $returned_name;?>.png"><div class="after">Streak 100% x10</div></div>
     </div>
-    <footer>University Centre Weston</footer>
+    
+    <div id="achievements-footerspace"></div>
+    <footer>Weston College</footer>
 </body>
 
     <!-- PHP Functions -->

@@ -39,6 +39,6 @@
     </div>
     </div>
     <div id="index-footerspace"></div>
-    <footer>University Centre Weston</footer>
+    <footer>Weston College</footer>
 </body>
 </html>

@@ -81,6 +81,6 @@ else
     
     <div id="instructions-footerspace"></div>
     
-    <footer>University Centre Weston</footer>
+    <footer>Weston College</footer>
 </body>
 </html>

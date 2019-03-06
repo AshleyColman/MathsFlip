@@ -90,6 +90,6 @@ $_SESSION['one_set_completed'] = FALSE;
     </div>
     
     <div id="loggedin-footerspace"></div>
-    <footer>University Centre Weston</footer>
+    <footer>Weston College</footer>
 </body>
 </html>

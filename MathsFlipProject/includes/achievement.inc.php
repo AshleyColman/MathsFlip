@@ -183,7 +183,6 @@ if ($maxpercentcounter >= 3)
 // random achievement
 if ($maxpercentcounter >= 5)
 {
-    echo $maxpercentcounter;
     // Get achievement id
     $achievement_id = GetAchievementID("random100", $conn);
     

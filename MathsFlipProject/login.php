@@ -44,7 +44,7 @@ session_start();
         </form>
     </div>
     </div>
-    
-    <footer>University Centre Weston</footer>
+    <div id="login-footerspace"></div>
+    <footer>Weston College</footer>
 </body>
 </html>

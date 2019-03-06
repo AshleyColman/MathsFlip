@@ -34,9 +34,36 @@ include 'includes/highscore.inc.php';
 // Get whether it is a new highscore or not to display the effect
 $new_highscore = $_SESSION['new_highscore'];
 
+// Get the category
+$category = $_SESSION['category'];
+
 // Include the achievements file to check for achievements
 // Connect to database
 include('includes/achievement.inc.php');
+
+
+
+// Set category exam value for output
+if ($category == "number")
+{
+    $category_exam_value = 25;
+}
+if ($category  == "algebra")
+{
+    $category_exam_value = 20;
+}
+if ($category  == "ratio")
+{
+    $category_exam_value = 25;
+}
+if ($category  == "geometry")
+{
+    $category_exam_value = 15;
+}
+if ($category  == "probability")
+{
+    $category_exam_value = 15;
+}
 ?>
 
 <!DOCTYPE html>
@@ -87,9 +114,9 @@ include('includes/achievement.inc.php');
 
                 <div class="results-button results-menu-button" id="results-category-button">
                     <div class="results-infobar">Category</div>
-                    <div class="category-icon"><img src="img/cube.png" alt="cube"></div>
-                    <div class="category-name">Number</div>
-                    <div class="category-percentage">15%</div>
+                    <div class="category-icon"><img src="img/<?php echo $category?>.png" alt="cube"></div>
+                    <div class="category-name"><?php echo ucfirst($category)?></div>
+                    <div class="category-percentage"><?php echo $category_exam_value?></div>
                     </div>
                     <div class="results-scorebar"></div>
 
@@ -130,7 +157,7 @@ include('includes/achievement.inc.php');
         <!-- Extend page for additional scrolling at bottom of the page -->
         <div id="results-footerspace"></div>
 
-        <footer>University Centre Weston</footer>
+        <footer>Weston College</footer>
 
 </body>
 </html>
